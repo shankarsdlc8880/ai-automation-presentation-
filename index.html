@@ -287,7 +287,7 @@ body{margin:0; min-height:100vh; color:var(--ink); font-family:var(--body); -web
           <div class="inv-head"><span>Document Type</span><span class="t2">Carrier freight</span></div>
           <div class="inv-row field" data-i="0"><span>BL Number</span><span class="v">MAEU-1234567</span></div>
           <div class="inv-row field" data-i="1"><span>Invoice Number</span><span class="v">INV-88421</span></div>
-          <div class="inv-row field" data-i="2"><span>Tax ID</span><span class="v">DK53139904</span></div>
+          <div class="inv-row field" data-i="2"><span>GST Number</span><span class="v">27ABCDE1234F1Z5</span></div>
           <div class="inv-sep"></div>
           <div class="inv-row field" data-i="3"><span>Charge Items</span><span class="v">BUC, DET, DEM</span></div>
           <div class="inv-sep"></div>
@@ -371,7 +371,7 @@ body{margin:0; min-height:100vh; color:var(--ink); font-family:var(--body); -web
       <div class="vdb-reclabel">Records written</div>
       <div class="mo-row" data-i="0"><span class="mo-check">&#10003;</span><span class="mo-body"><span class="src">BL MAEU-1234567</span> <span class="arr">&rarr;</span> <span class="tbl">INVOICE</span> <span class="res">Shipment SHP-5567 &middot; Hamburg&rarr;New York</span></span><span class="mo-conf high">99%</span></div>
       <div class="mo-row" data-i="1"><span class="mo-check">&#10003;</span><span class="mo-body"><span class="src">INV-88421</span> <span class="arr">&rarr;</span> <span class="tbl">INVOICE</span> <span class="res">Invoice record matched</span></span><span class="mo-conf high">100%</span></div>
-      <div class="mo-row" data-i="2"><span class="mo-check">&#10003;</span><span class="mo-body"><span class="src">Tax ID DK53139904</span> <span class="arr">&rarr;</span> <span class="tbl">SERVICE_PROVIDERS</span> <span class="res">Maersk Line &middot; vendor_code V-1042</span></span><span class="mo-conf high">98%</span></div>
+      <div class="mo-row" data-i="2"><span class="mo-check">&#10003;</span><span class="mo-body"><span class="src">GST Number 27ABCDE1234F1Z5</span> <span class="arr">&rarr;</span> <span class="tbl">SERVICE_PROVIDERS</span> <span class="res">Maersk Line &middot; vendor_code V-1042</span></span><span class="mo-conf high">98%</span></div>
       <div class="mo-row" data-i="3"><span class="mo-check">&#10003;</span><span class="mo-body"><span class="src">BUC / DET / DEM</span> <span class="arr">&rarr;</span> <span class="tbl">ACCESSORIAL_CODE</span> <span class="res">4100 &middot; DET &middot; DEM</span></span><span class="mo-conf high">96%</span></div>
       <div class="mo-row review" data-i="4"><span class="mo-warn">!</span><span class="mo-body"><span class="src">Vendor "MARSK LINE"</span> <span class="arr">&rarr;</span> <span class="tbl">SERVICE_PROVIDERS</span> <span class="res">fuzzy match: Maersk Line? &middot; embedding similarity</span></span><span class="mo-conf low">78%</span><span class="review-tag">Human review</span></div>
     </div>
@@ -429,7 +429,7 @@ body{margin:0; min-height:100vh; color:var(--ink); font-family:var(--body); -web
   var TRACE=[
     'BL <b>"MAEU-1234567"</b> '+A+' normalize '+A+' embed '+A+' nearest <b>INVOICE.bl_no</b> '+A+' SHP-5567 '+A+' <span class="ok">99% &middot; auto-map</span>',
     'Invoice <b>"INV-88421"</b> '+A+' normalize '+A+' lookup <b>INVOICE.invoice_no</b> '+A+' exact key '+A+' <span class="ok">100% &middot; auto-map</span>',
-    'Tax ID <b>"DK53139904"</b> '+A+' normalize '+A+' embed '+A+' nearest <b>SERVICE_PROVIDERS</b> '+A+' vendor_code V-1042 '+A+' <span class="ok">98% &middot; auto-map</span>',
+    'GST Number <b>"27ABCDE1234F1Z5"</b> '+A+' normalize '+A+' embed '+A+' nearest <b>SERVICE_PROVIDERS</b> '+A+' vendor_code V-1042 '+A+' <span class="ok">98% &middot; auto-map</span>',
     'Charges <b>"BUC, DET, DEM"</b> '+A+' normalize '+A+' embed '+A+' <b>ACCESSORIAL_CODE</b> '+A+' 4100 / DET / DEM '+A+' <span class="ok">96% &middot; auto-map</span>',
     'Vendor <b>"MARSK LINE"</b> '+A+' normalize '+A+' embed '+A+' nearest <b>Maersk Line</b> cosine 0.78 '+A+' <span class="wn">below 90% &middot; human review</span>'
   ];
