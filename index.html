@@ -441,7 +441,7 @@ body{margin:0; min-height:100vh; color:var(--ink); font-family:var(--body); -web
   var MAP=[
     {t:'invoice', cols:['bl_no','shipment_id','location']},
     {t:'invoice', cols:['invoice_no']},
-    {t:'sp', cols:['GST_Number,'vendor_code']},
+    {t:'sp', cols:['GST_Number','vendor_code']},
     {t:'acc', cols:['charge_desc','accessorial_code']},
     {t:'sp', cols:['name','vendor_code']}
   ];
@@ -470,9 +470,10 @@ body{margin:0; min-height:100vh; color:var(--ink); font-family:var(--body); -web
   }
   /* smart-learning counters */
   var nums=[].slice.call(document.querySelectorAll('.sm-num'));
-  function fmt(el,n){ return (el.dataset.pre||'') + Math.round(n).toLocaleString() + (el.dataset.suf||''); }
+  function fmt(el,n){ return (el.dataset.pre||'') + Math.round(Math.max(0,n)).toLocaleString() + (el.dataset.suf||''); }
   function runCount(el){ var to=+el.dataset.to, start=performance.now(), dur=1500;
-    function step(t){ var p=Math.min(1,(t-start)/dur), e=1-Math.pow(1-p,3); el.textContent=fmt(el,to*e); if(p<1) requestAnimationFrame(step); }
+    el.textContent = fmt(el, 0);
+    function step(t){ var p=Math.min(1,(t-start)/dur), e=1-Math.pow(1-p,3); var value = p < 0.01 ? 0 : to*e; el.textContent=fmt(el,value); if(p<1) requestAnimationFrame(step); }
     requestAnimationFrame(step);
   }
   if(reduce){ nums.forEach(function(el){ el.textContent=fmt(el,+el.dataset.to); }); }
